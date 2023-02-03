@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     
     public float moveForce = 10f;
-    public float jumpForce = 7f;
+    public float jumpForce = 5f;
     private float movementX;
     
     private Rigidbody2D myBody;
@@ -19,26 +19,26 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //!GameObject.Find("Canvas").GetComponent<Canvas>().enabled
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMoveKeyboard();
+        if ((myBody.constraints & RigidbodyConstraints2D.FreezePositionX) != RigidbodyConstraints2D.FreezePositionX)
+        {
+            PlayerMoveKeyboard();
+        }
         PlayerJump();
     }
     
     void PlayerMoveKeyboard() 
     {
-        
         movementX = Input.GetAxisRaw("Horizontal");
-        
         transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
-        
     }
     
-        void PlayerJump()
+    void PlayerJump()
     {
         if (Input.GetButtonDown("Jump"))// && isGrounded)
         {
