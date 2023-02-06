@@ -46,4 +46,15 @@ public class Player : MonoBehaviour
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
+
+    // respawn the player when they collide with a respawn box
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            //TODO: Decide if respawning should send back to computer area, a set location, or reset all progress.
+            transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        }
+    }
+
 }
