@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    public float moveForce = 10f;
+    public float moveForce = 12f;
     public float jumpForce = 5f;
     private float movementX;
     
