@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private float movementX;
     
     private Rigidbody2D myBody;
+    public bool isGrounded = true;
     
     private void Awake() 
     {
@@ -35,14 +36,14 @@ public class Player : MonoBehaviour
     void PlayerMoveKeyboard() 
     {
         movementX = Input.GetAxisRaw("Horizontal");
-        transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
+        myBody.AddForce(new Vector2(movementX * moveForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
     }
     
     void PlayerJump()
     {
-        if (Input.GetButtonDown("Jump"))// && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            //isGrounded = false;
+            isGrounded = false;
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -53,8 +54,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Respawn"))
         {
             //TODO: Decide if respawning should send back to computer area, a set location, or reset all progress.
+            // This is placeholder code
             transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        } else if(collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
+
     }
 
 }
