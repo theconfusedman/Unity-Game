@@ -37,18 +37,52 @@ public class Player : MonoBehaviour
     void PlayerMoveKeyboard() 
     {
         movementX = Input.GetAxisRaw("Horizontal");
-        if (myBody.velocity.x < maxSpeed && myBody.velocity.x > -maxSpeed)
+
+        //if (movementX < 0)
+        //{
+        //    print("negative");
+        //    myBody.AddForce(new Vector2(-moveForce, 0));
+        //}
+        //else if (movementX > 0)
+        //{
+        //    print("positive");
+        //    myBody.AddForce(new Vector2(moveForce, 0));
+        //    //myBody.velocity.Set(moveForce, myBody.velocity.y);
+        //}
+
+        if ((myBody.velocity.x < maxSpeed && myBody.velocity.x > -maxSpeed) && movementX != 0)
         {
-            myBody.velocity.Set(movementX * moveForce * Time.deltaTime, myBody.velocity.y);
-            //myBody.AddForce(new Vector2(movementX * moveForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
-        } else if (myBody.velocity.x < 0)
+            print("accelerating");
+            //myBody.velocity.Set(movementX * moveForce * Time.deltaTime, myBody.velocity.y);
+            myBody.AddForce(new Vector2(movementX * moveForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
+        }
+        else if (myBody.velocity.x < 0)
         {
+            print("max negative");
             myBody.velocity.Set(-maxSpeed, myBody.velocity.y);
-        } else
+        }
+        else if (myBody.velocity.x > 0)
         {
+            print("max positive");
             myBody.velocity.Set(maxSpeed, myBody.velocity.y);
         }
-        
+
+        //if (movementX == 1)
+        //{
+        //    print("positive");
+        //    myBody.AddForce(new Vector2(moveForce * Time.deltaTime, 0));
+        //    myBody.velocity.Set(maxSpeed, myBody.velocity.y);
+        //} else if (movementX == -1)
+        //{
+        //    print("negative");
+        //    myBody.AddForce(new Vector2(-moveForce * Time.deltaTime, 0));
+        //    myBody.velocity.Set(-maxSpeed, myBody.velocity.y);
+        //} else
+        //{
+        //    print("0");
+        //    myBody.velocity.Set(0, myBody.velocity.y);
+        //}
+
     }
     
     void PlayerJump()
