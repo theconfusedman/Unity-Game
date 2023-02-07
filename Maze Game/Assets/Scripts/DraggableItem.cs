@@ -9,6 +9,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
     public string nameOfRoom;
     public string roomSlot;
+    public bool canMove = true;
+
     [HideInInspector] public Transform parentAfterDrag;
     
     public void OnBeginDrag(PointerEventData eventData)
