@@ -4359,9 +4359,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5832899081334317523, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832899081334317525, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5832899081334317525, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
       propertyPath: moveForce
-      value: 8
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5832899081334317526, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
       propertyPath: m_Name
