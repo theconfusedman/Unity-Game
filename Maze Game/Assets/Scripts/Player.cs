@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     
     public float moveForce = 12f;
+    public float maxSpeed = 30;
     public float jumpForce = 5f;
     private float movementX;
     
@@ -36,7 +37,18 @@ public class Player : MonoBehaviour
     void PlayerMoveKeyboard() 
     {
         movementX = Input.GetAxisRaw("Horizontal");
-        myBody.AddForce(new Vector2(movementX * moveForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
+        if (myBody.velocity.x < maxSpeed && myBody.velocity.x > -maxSpeed)
+        {
+            myBody.velocity.Set(movementX * moveForce * Time.deltaTime, myBody.velocity.y);
+            //myBody.AddForce(new Vector2(movementX * moveForce * Time.deltaTime, 0f), ForceMode2D.Impulse);
+        } else if (myBody.velocity.x < 0)
+        {
+            myBody.velocity.Set(-maxSpeed, myBody.velocity.y);
+        } else
+        {
+            myBody.velocity.Set(maxSpeed, myBody.velocity.y);
+        }
+        
     }
     
     void PlayerJump()
