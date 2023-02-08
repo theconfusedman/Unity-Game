@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ComputerManager : MonoBehaviour
 {
-
     private CanvasGroup BackgroundCanvasGroup;
     private Rigidbody2D PlayerRB;
     private Text InfoText;
@@ -13,7 +12,7 @@ public class ComputerManager : MonoBehaviour
     bool ComputerTriggered = false;
     
     private void Awake() 
-    {
+    {   
         BackgroundCanvasGroup = GameObject.Find("Background").GetComponent<CanvasGroup>();
         PlayerRB = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         InfoText = GameObject.Find("KeyInfoText").GetComponent<Text>();
@@ -64,13 +63,12 @@ public class ComputerManager : MonoBehaviour
     
     public void FreezePlayer()
     {
-        PlayerRB.constraints = RigidbodyConstraints2D.FreezePosition;
+        PlayerRB.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     
     public void UnfreezePlayer()
     {
         PlayerRB.constraints = RigidbodyConstraints2D.None;
         PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
-        PlayerRB.velocity = Vector2.down * 0.0000000000000000000001f;
     }
 }

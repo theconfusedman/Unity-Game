@@ -11,11 +11,19 @@ public class Player : MonoBehaviour
     private float movementX;
     
     private Rigidbody2D myBody;
+    private Animator anim;
+    private SpriteRenderer sr;
+    private string WALK_ANIMATION = "Walk";
+    private string IDLE_ANIMATION = "Idle";
     public bool isGrounded = true;
     
     private void Awake() 
     {
         myBody = GetComponent<Rigidbody2D>();
+        
+        anim = GetComponent<Animator>();
+        
+        sr = GetComponent<SpriteRenderer>();
     }
     
     // Start is called before the first frame update
@@ -30,8 +38,9 @@ public class Player : MonoBehaviour
         if ((myBody.constraints & RigidbodyConstraints2D.FreezePositionX) != RigidbodyConstraints2D.FreezePositionX)
         {
             PlayerMoveKeyboard();
+            PlayerJump();
+            AnimatePlayer();
         }
-        PlayerJump();
     }
 
     void PlayerMoveKeyboard()
@@ -63,6 +72,27 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+    
+    void AnimatePlayer() 
+    {   
+        if(myBody.velocity.x > 0)
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+            anim.SetBool(IDLE_ANIMATION, false);
+            sr.flipX = false;
+        }
+        else if (myBody.velocity.x < 0)
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+            anim.SetBool(IDLE_ANIMATION, false);
+            sr.flipX = true;
+        }
+        else
+        {
+            anim.SetBool(WALK_ANIMATION, false);
+            anim.SetBool(IDLE_ANIMATION, true);
         }
     }
 
