@@ -7,8 +7,10 @@ public class Enemy : MonoBehaviour
 
     public float moveDistance;
     public float speed = 3;
+
     private float startX;
     private bool backwards = false;
+
     private Rigidbody2D body;
     private GameObject Player;
 
@@ -59,12 +61,12 @@ public class Enemy : MonoBehaviour
 
         }
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision) 
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Player.transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-        }
-    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Player.transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+    //    }
+    //}
 }
