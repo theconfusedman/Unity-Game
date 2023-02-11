@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
     private float startX;
     private bool backwards = false;
     private Rigidbody2D body;
+    private GameObject Player;
 
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        Player = GameObject.Find("Player");
     }
 
     // Start is called before the first frame update
@@ -55,6 +57,14 @@ public class Enemy : MonoBehaviour
             print("going forward");
             backwards = false;
 
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
     }
 }
