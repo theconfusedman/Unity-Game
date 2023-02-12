@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 1baecd10952100743ab9df00e2ffa886
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hermit
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6ae3448455eaad044add8270612aa825, type: 3}
+  - {fileID: 12800000, guid: d9a26ef30a590444aa2b7498070b1bd1, type: 3}
+  - {fileID: 12800000, guid: 73cc536b4c5807f4b86585640df6dcb7, type: 3}
+  - {fileID: 12800000, guid: f49a25f99cd73424d9df67ac7c10a44d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

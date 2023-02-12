@@ -4200,7 +4200,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 7e4e9b4dc37435342bc9ea321316a336, type: 3}
     m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 1
@@ -4370,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5832899081334317521, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.721
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5832899081334317521, guid: b3366d42cfc737d4ab98bc0db6ebf5a1, type: 3}
       propertyPath: m_LocalPosition.z
